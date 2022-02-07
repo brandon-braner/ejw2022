@@ -39,7 +39,7 @@ def download_file():
     # Upload the files to the bucket
     metafile = FILENAME.replace(".zip", ".des")
     # Check if file was successfully downloaded
-    if not os.path.exists(metafile):
+    if not os.path.exists(f"/tmp/{metafile}"):
         raise FileNotFoundError(
             "Could not find the '.des' file. Error in unzipping the data."
         )
@@ -50,7 +50,7 @@ def download_file():
     print(f"Uploaded metafile in {end_time - start_time} seconds")
     datafile = FILENAME.replace(".zip", ".dat")
     # Check if file was successfully downloaded
-    if not os.path.exists(datafile):
+    if not os.path.exists(f"/tmp/{datafile}"):
         raise FileNotFoundError(
             "Could not find the '.dat' file. Error in unzipping the data."
         )

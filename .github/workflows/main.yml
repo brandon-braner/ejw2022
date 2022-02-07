@@ -34,7 +34,8 @@ jobs:
       - id: 'deploy'
         uses: 'google-github-actions/deploy-cloud-functions@v0'
         with:
-          name: 'my-function'
+          name: 'function-test'
           entry_point: 'hello_world'
           source_dir: 'src'
           runtime: 'python39'
+          memory_mb: 1024

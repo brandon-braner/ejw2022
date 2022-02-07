@@ -17,7 +17,7 @@ def download_file():
     print("Downloading the zip file...")
     start_time = time.time()
     request.urlretrieve(
-        f"https://www.doc.state.nc.us/offenders/{FILENAME}", filename=f"./{FILENAME}"
+        f"https://www.doc.state.nc.us/offenders/{FILENAME}", filename=f"/tmp/{FILENAME}"
     )
     end_time = time.time()
     print(f"Downloaded in {end_time - start_time} seconds")

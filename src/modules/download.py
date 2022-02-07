@@ -5,7 +5,7 @@ import zipfile
 import gcsfs
 from urllib import request
 from datetime import datetime, timedelta
-from src.modules.config import gs_file_path, project
+from .config import gs_file_path, project
 
 fs = gcsfs.GCSFileSystem(project=project)
 RAW_PATH = f"gs://{gs_file_path}/raw_data"

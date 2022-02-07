@@ -29,7 +29,7 @@ def download_file():
 
     # Extract the data from the zip file
     with zipfile.ZipFile(download_file_path, "r") as zip_ref:
-        zip_ref.extractall("./")
+        zip_ref.extractall("/tmp/")
 
     # Get last Saturday's date
     date = datetime.now() - timedelta(days=((datetime.now().isoweekday() + 1) % 7))

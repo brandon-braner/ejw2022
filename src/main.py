@@ -1,3 +1,7 @@
+from modules.download import download_file
+from modules.process import process
+
+
 def hello_world(request):
     """Responds to any HTTP request.
     Args:
@@ -7,10 +11,11 @@ def hello_world(request):
         Response object using
         `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
     """
-    request_json = request.get_json()
-    if request.args and 'message' in request.args:
-        return request.args.get('message')
-    elif request_json and 'message' in request_json:
-        return request_json['message']
-    else:
-        return f'Hello World!'
+    # request_json = request.get_json()
+
+    download_file()
+    process()
+
+
+if __name__ == '__main__':
+    hello_world()

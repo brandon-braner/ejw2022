@@ -9,7 +9,6 @@ from multiprocessing import Process
 
 from .config import gs_file_path, project
 
-fs = gcsfs.GCSFileSystem(project=project)
 RAW_PATH = f"gs://{gs_file_path}/raw_data"
 RESULTS_PATH = f"gs://{gs_file_path}/results"
 
@@ -37,6 +36,8 @@ def process_file(metafile: str, datafile: str, date: str):
     # Parse the metafile
     widths = []
     colnames = []
+    fs = gcsfs.GCSFileSystem(project=project)
+
     with fs.open(metafile, "r") as fid:
         _ = fid.readline()  # throw away header
 
@@ -65,6 +66,8 @@ def process_file(metafile: str, datafile: str, date: str):
 
 def process(process_all: bool = False):
     process_all = process_all
+    fs = gcsfs.GCSFileSystem(project=project)
+
     date = datetime.datetime.now() - timedelta(days=((datetime.datetime.now().isoweekday() + 1) % 7))
     date = date.strftime("%m-%d-%Y")
     if not process_all and not date:

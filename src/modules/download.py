@@ -7,12 +7,13 @@ from urllib import request
 from datetime import datetime, timedelta
 from .config import gs_file_path, project
 
-fs = gcsfs.GCSFileSystem(project=project)
 RAW_PATH = f"gs://{gs_file_path}/raw_data"
 FILENAME = "INMT4AA1.zip"
 
 
 def download_file():
+    fs = gcsfs.GCSFileSystem(project=project)
+
     # Download the zip file
     download_file_path = f"/tmp/{FILENAME}"
     print("Downloading the zip file...")

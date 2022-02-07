@@ -17,5 +17,4 @@ def hello_world(request):
     process()
 
 
-if __name__ == '__main__':
-    hello_world()
+

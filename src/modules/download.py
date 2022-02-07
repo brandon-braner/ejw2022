@@ -37,7 +37,7 @@ def download_file():
     date = date.strftime("%m-%d-%Y")
 
     # Upload the files to the bucket
-    metafile = download_file_path.replace(".zip", ".des")
+    metafile = FILENAME.replace(".zip", ".des")
     # Check if file was successfully downloaded
     if not os.path.exists(metafile):
         raise FileNotFoundError(
@@ -48,7 +48,7 @@ def download_file():
     fs.put_file(metafile, f"{RAW_PATH}/{date}/{metafile}")
     end_time = time.time()
     print(f"Uploaded metafile in {end_time - start_time} seconds")
-    datafile = download_file_path.replace(".zip", ".dat")
+    datafile = FILENAME.replace(".zip", ".dat")
     # Check if file was successfully downloaded
     if not os.path.exists(datafile):
         raise FileNotFoundError(

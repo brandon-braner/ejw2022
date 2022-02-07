@@ -45,7 +45,7 @@ def download_file():
         )
     print("Uploading the metafile to the bucket...")
     start_time = time.time()
-    fs.put_file(metafile, f"{RAW_PATH}/{date}/{metafile}")
+    fs.put_file(f"/tmp/{metafile}", f"{RAW_PATH}/{date}/{metafile}")
     end_time = time.time()
     print(f"Uploaded metafile in {end_time - start_time} seconds")
     datafile = FILENAME.replace(".zip", ".dat")
@@ -57,6 +57,6 @@ def download_file():
 
     print("Uploading the datafile to the bucket...")
     start_time = time.time()
-    fs.put_file(datafile, f"{RAW_PATH}/{date}/{datafile}")
+    fs.put_file(f"/tmp/{datafile}", f"{RAW_PATH}/{date}/{datafile}")
     end_time = time.time()
     print(f"Uploaded datafile in {end_time - start_time} seconds")

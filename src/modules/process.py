@@ -63,6 +63,8 @@ def process_file(metafile: str, datafile: str, date: str):
     # Upload the results
     df.to_parquet(outfile_path, index=False)
 
+    return outfile_path
+
 
 def process(process_all: bool = False):
     process_all = process_all
@@ -100,4 +102,4 @@ def process(process_all: bool = False):
                 f"Meta and/or data file not present at {RAW_PATH}/{date}/"
             )
 
-        process_file(metafile[0], datafile[0], date)
+        return process_file(metafile[0], datafile[0], date)
